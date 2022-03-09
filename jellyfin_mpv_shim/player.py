@@ -459,6 +459,8 @@ class PlayerManager(object):
             self._player.fs = True
         self._player.force_media_title = video.get_proper_title()
         self._video = video
+        if video.get_fonts_path() != 0:
+            self._player.sub_fonts_dir = video.get_fonts_path()
         self.external_subtitles = {}
         self.external_subtitles_rev = {}
 

@@ -114,6 +114,8 @@ class Settings(SettingsBase):
     lang_filter_sub: bool = False
     lang_filter_audio: bool = False
     screenshot_dir: Optional[str] = get_default_sdir()
+    fonts_host_media_path: Optional[str] = None
+    fonts_container_media_path: Optional[str] = None
 
     def __get_file(self, path: str, mode: str = "r", create: bool = True):
         created = False

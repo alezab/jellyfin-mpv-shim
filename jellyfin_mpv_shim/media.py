@@ -271,6 +271,15 @@ class Video(object):
             log.debug("Media Decision: {0}".format(self.media_source))
         return url
 
+    def get_fonts_path(self):
+        vid_path = str(pathlib.PureWindowsPath(self.media_source["Path"]))
+        host_path = str(pathlib.PureWindowsPath(settings.fonts_host_media_path))
+        container_path = str(pathlib.PureWindowsPath(settings.fonts_container_media_path))
+        if vid_path.find(container_path) != -1:
+            return os.path.dirname(vid_path.replace(container_path, host_path)) + "\\fonts"
+        else:
+            return 0
+
     def get_duration(self):
         ticks = self.item.get("RunTimeTicks")
         if ticks:
